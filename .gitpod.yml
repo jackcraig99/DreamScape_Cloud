@@ -1,0 +1,17 @@
+# This file tells Gitpod how to configure your cloud development environment.
+
+tasks:
+  - name: Install Dependencies & Start
+    init: |
+      # Install project dependencies
+      npm install
+      # Go into the android directory and accept SDK licenses
+      cd android && yes | sdkmanager --licenses && cd ..
+    command: |
+      # Start the React Native bundler when the workspace opens
+      npx react-native start
+
+ports:
+  # Expose the Metro bundler port so the app can connect to it.
+  - port: 8081
+    onOpen: ignore
